@@ -4,9 +4,11 @@
   "private": true,
   "homepage": "https://gtwright.github.io/cdd-algolia",
   "dependencies": {
+    "@material-ui/core": "^1.2.1",
     "gh-pages": "^1.2.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-instantsearch": "^5.1.0",
     "react-scripts": "1.1.4"
   },
   "scripts": {
