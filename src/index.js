@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from './components/App';
+import App from './App';
 
-ReactDOM.render(
-  <BrowserRouter basename="/cdd-algolia">
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root'),
-);
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
