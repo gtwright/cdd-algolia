@@ -30,9 +30,9 @@ const Composer = ({ hit })=> {
       </span><br/>
 
       <p>
-        <span>
-          {hit.locations[0].short_name}
-        </span>
+        {hit.locations && <span>
+          {hit.locations.forEach((e)=>e.short_name)}
+        </span>}
       </p>
     </div>;
 }
