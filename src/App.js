@@ -17,18 +17,23 @@ import Grid from '@material-ui/core/Grid';
 const Search = () => {
   return (
     <div className="container">
-      <Hits hitComponent={Product} />
+      <Hits hitComponent={Composer} />
     </div>
   );
 }
 
-const Product = ({ hit })=> {
+const Composer = ({ hit })=> {
+  console.log(hit);
   return <div style={{ marginTop: '10px' }}>
-      <span className="hit-name">
-        <a href={hit.URL} target="_blank"><Highlight attribute="name" hit={hit} /></a>
+      <span className="hit-post-name">
+        <a href={hit.website} target="_blank"><Highlight attribute="post_title" hit={hit} /></a>
       </span><br/>
 
-      <p>{hit.location}</p>
+      <p>
+        <span>
+          {hit.locations[0].short_name}
+        </span>
+      </p>
     </div>;
 }
 
@@ -37,9 +42,9 @@ class App extends Component {
   render() {
     return (
         <InstantSearch
-          appId="MDHJPGSBTR"
-          apiKey="4738ce6fcd24376337bb0f0268f2b0f4"
-          indexName="CDD"
+          appId="K6RHV95P7Q"
+          apiKey="529cedad27ce595fb0d2b0e181f32861"
+          indexName="wp_posts_composer"
         >
           <CurrentRefinements />
           <ClearRefinements />
@@ -48,13 +53,13 @@ class App extends Component {
           <Grid container spacing={24}>
             <Grid item xs={12} sm={3}>
               <h3>Genres</h3>
-              <RefinementList attribute="genres" />
+              <RefinementList attribute="taxonomies.genre" />
               <h3>Gender</h3>
-              <RefinementList attribute="gender" />
+              <RefinementList attribute="taxonomies.gender" />
               <h3>Country</h3>
-              <RefinementList attribute="country" />
+              <RefinementList attribute="locations.country" />
               <h3>Demographics</h3>
-              <RefinementList attribute="demographics" />
+              <RefinementList attribute="taxonomies.demographic" />
             </Grid>
             <Grid item xs={12} sm={9}>
               <h3>Results</h3>
